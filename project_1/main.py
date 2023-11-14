@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
-
+import random
+import csv 
 
 def ex_1():
 
@@ -16,6 +17,24 @@ def ex_1():
     pass
 
 def ex_2():
+        import csv 
+        import random 
+        print("Podaj ilosc liczb do wygenerowania:")
+        n = int(input()) #Uzytkownik podaje ilosc liczb do wygenerowani
+        print("Podaj zakres dolny:")
+        a = int(input()) #Dolny zakres generowanych liczb
+        print("Podaj zakres gorny")
+        b = int(input()) # Gorny zakres 
+        random_num_ls = []#utworzenie listy dla generowanych liczb
+
+        for _ in range(n):
+            random_num = random.uniform(a,b)#generowanie liczb w zakresie a,b
+            random_num_ls.append(round(random_num))#Wygenerowane liczby dodajemy do listy za pomoca append
+
+        with open('wyniki.csv', mode='w', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerows(zip(random_num_ls))
+
     pass
 
 def ex_3():
