@@ -20,16 +20,16 @@ def ex_2():
         import csv 
         import random 
         print("Podaj ilosc liczb do wygenerowania:")
-        n = int(input()) #Uzytkownik podaje ilosc liczb do wygenerowani
+        n = int(input()) 
         print("Podaj zakres dolny:")
-        a = int(input()) #Dolny zakres generowanych liczb
+        a = int(input()) 
         print("Podaj zakres gorny")
-        b = int(input()) # Gorny zakres 
-        random_num_ls = []#utworzenie listy dla generowanych liczb
+        b = int(input())
+        random_num_ls = []
 
         for _ in range(n):
-            random_num = random.uniform(a,b)#generowanie liczb w zakresie a,b
-            random_num_ls.append(round(random_num))#Wygenerowane liczby dodajemy do listy za pomoca append
+            random_num = random.uniform(a,b)
+            random_num_ls.append(round(random_num))
 
         with open('wyniki.csv', mode='w', newline='') as f:
             writer = csv.writer(f)
@@ -38,6 +38,25 @@ def ex_2():
     pass
 
 def ex_3():
+    import csv
+    read_num = []
+    with open('wyniki.csv', mode='r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            for value in row:
+                read_num.append(float(value))
+    n = len(read_num)
+    mean = sum(read_num)/n
+    sd = [(x-n)**2 for x in read_num]
+    standard_deviation = sum(sd)/n
+    max_value = max(read_num)
+    min_value = min(read_num)
+    sort = sorted(read_num)
+    print(mean)
+    print(standard_deviation)
+    print(min_value)
+    print(max_value)
+    print(sort)
     pass
 
 def ex_4(n):
