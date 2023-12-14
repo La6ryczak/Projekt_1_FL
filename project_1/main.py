@@ -60,9 +60,46 @@ def ex_3():
     pass
 
 def ex_4(n):
+    n = int(input())
+
+    def fibo_gen(n):
+        a, b = 0, 1
+
+        for _ in range(n):
+            yield a
+            a, b = b, a + b
+    fib = fibo_gen(n)
+    for num in fib:
+     print(num)
     return n
 
 def ex_5():
+
+import matplotlib.pyplot as plt
+
+def plot_fibo(n):
+    fib = fibo_gen(n)
+    fibo_numbers = [num for num in fib]
+
+    plt.figure(figsize=(8, 6))
+    plt.plot(fibo_numbers, marker='o', linestyle='-', color='r')
+    plt.title(f'Ciag fibonacziego(pierwsze {n} liczb)')
+    plt.xlabel('Indeks')
+    plt.ylabel('Wartosc liczbowa')
+    plt.grid(True)
+    plt.show()
+
+def fibo_gen(n):
+    a, b = 0, 1
+
+    for _ in range(n):
+        yield a
+        a, b = b, a + b
+
+n = int(input())
+plot_fibo(n)
+
+
     pass
 
 def ex_6():
