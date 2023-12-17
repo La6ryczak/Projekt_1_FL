@@ -127,9 +127,32 @@ def ex_7():
     pass
 
 def ex_8():
+    
+    def utworz_pliki():
+        folder = "data"  
+        if not os.path.exists(folder):
+            os.makedirs(folder)
+
+        for i in range(10):
+            current_time = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S_%f")[:-3]  
+            file_name = f"{current_time }_{i}.bin"  
+            s = os.path.join(folder, file_name)
+            file_path = os.path.join(folder, file_name)
+
+            with open(file_path, "wb") as plik:
+                data_num = random.randint(1, 100)  
+                random_num = os.urandom(data_num)  
+                plik.write(random_num)  
+
+                print(f"Utworzono plik: {file_name} z {data_num} bajtami")
+
+
+    utworz_pliki()
+
     pass
 
 def ex_9():
+    print("Zadanie_9")
     pass
 
 
