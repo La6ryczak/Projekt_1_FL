@@ -4,41 +4,37 @@ import random
 import csv 
 
 def ex_1():
-
     for i in range(100):
-        if i% 3 == 0: 
+        if i % 3 == 0: 
             print("Fizz")
-        elif i%5 ==0:
+        elif i % 5 == 0:
             print("Buzz")
-        elif i%5 ==0 and i%3 ==0:
+        elif i % 5 == 0 and i % 3 == 0:
             print("FizzBuzz")
         else:
             print(i)
     pass
 
 def ex_2():
-        import csv 
-        import random 
-        print("Podaj ilosc liczb do wygenerowania:")
-        n = int(input()) 
-        print("Podaj zakres dolny:")
-        a = int(input()) 
-        print("Podaj zakres gorny")
-        b = int(input())
-        random_num_ls = []
+    print("Podaj ilosc liczb do wygenerowania:")
+    n = int(input()) 
+    print("Podaj zakres dolny:")
+    a = int(input()) 
+    print("Podaj zakres gorny")
+    b = int(input())
+    random_num_ls = []
 
-        for _ in range(n):
-            random_num = random.uniform(a,b)
-            random_num_ls.append(round(random_num))
+    for _ in range(n):
+        random_num = random.uniform(a, b)
+        random_num_ls.append(round(random_num))
 
-        with open('wyniki.csv', mode='w', newline='') as f:
-            writer = csv.writer(f)
-            writer.writerows(zip(random_num_ls))
+    with open('wyniki.csv', mode='w', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerows(zip(random_num_ls))
 
     pass
 
 def ex_3():
-    import csv
     read_num = []
     with open('wyniki.csv', mode='r') as file:
         reader = csv.reader(file)
@@ -46,9 +42,9 @@ def ex_3():
             for value in row:
                 read_num.append(float(value))
     n = len(read_num)
-    mean = sum(read_num)/n
-    sd = [(x-n)**2 for x in read_num]
-    standard_deviation = sum(sd)/n
+    mean = sum(read_num) / n
+    sd = [(x - mean) ** 2 for x in read_num]
+    standard_deviation = (sum(sd) / n) ** 0.5
     max_value = max(read_num)
     min_value = min(read_num)
     sort = sorted(read_num)
@@ -60,7 +56,7 @@ def ex_3():
     pass
 
 def ex_4(n):
-    n = int(input())
+    n = int(input("Podaj liczbę:"))
 
     def fibo_gen(n):
         a, b = 0, 1
@@ -70,39 +66,44 @@ def ex_4(n):
             a, b = b, a + b
     fib = fibo_gen(n)
     for num in fib:
-     print(num)
+        print(num)
     return n
 
 def ex_5():
+    n = int(input())
 
-import matplotlib.pyplot as plt
+    def plot_fibo(n):
+        def fibo_gen(n):
+            a, b = 0, 1
 
-def plot_fibo(n):
-    fib = fibo_gen(n)
-    fibo_numbers = [num for num in fib]
+            for _ in range(n):
+                yield a
+                a, b = b, a + b
 
-    plt.figure(figsize=(8, 6))
-    plt.plot(fibo_numbers, marker='o', linestyle='-', color='r')
-    plt.title(f'Ciag fibonacziego(pierwsze {n} liczb)')
-    plt.xlabel('Indeks')
-    plt.ylabel('Wartosc liczbowa')
-    plt.grid(True)
-    plt.show()
+        fib = fibo_gen(n)
+        fibo_numbers = [num for num in fib]
 
-def fibo_gen(n):
-    a, b = 0, 1
+        plt.figure(figsize=(8, 6))
+        plt.plot(fibo_numbers, marker='o', linestyle='-', color='r')
+        plt.title(f'Ciag fibonacziego(pierwsze {n} liczb)')
+        plt.xlabel('Indeks')
+        plt.ylabel('Wartosc liczbowa')
+        plt.grid(True)
+        plt.show()
 
-    for _ in range(n):
-        yield a
-        a, b = b, a + b
-
-n = int(input())
-plot_fibo(n)
-
-
+    plot_fibo(n)
     pass
 
 def ex_6():
+    n = int(input())
+
+    def gen_slownik(n):
+        slownik = {x: x**2 for x in range(1, n+1)}
+        for key, value in slownik.items():
+           print(f"Klucz: {key}, Wartość: {value}")
+        return slownik
+
+    wynik = gen_slownik(n)
     pass
 
 def ex_7():
@@ -127,3 +128,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
