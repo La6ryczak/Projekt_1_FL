@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import random
 import csv 
+import os
+import datetime
 
 def ex_1():
     for i in range(100):
@@ -107,6 +109,21 @@ def ex_6():
     pass
 
 def ex_7():
+    n = int(input())
+
+    def gen_slownik(n):
+        slownik = {x: x**2 for x in range(1, n+1)}
+        for key, value in slownik.items():
+           print(f"Klucz: {key}, Wartość: {value}")
+        return slownik
+        
+    def sum_slownik(slownik):
+        suma = sum(slownik.values())
+        print(f"Suma wartości w słowniku: {suma}")
+        return suma
+
+    wynik = gen_slownik(n)
+    sum_slownik(wynik)
     pass
 
 def ex_8():
