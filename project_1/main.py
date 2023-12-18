@@ -42,7 +42,7 @@ def ex_3():
         reader = csv.reader(file)
         for row in reader:
             for value in row:
-                read_num.append(float(value))
+                 read_num.append(float(value))
     n = len(read_num)
     mean = sum(read_num) / n
     sd = [(x - mean) ** 2 for x in read_num]
@@ -72,7 +72,7 @@ def ex_4(n):
     return n
 
 def ex_5():
-    n = int(input())
+    n = int(input("Podaj liczbe:"))
 
     def plot_fibo(n):
         def fibo_gen(n):
@@ -97,7 +97,7 @@ def ex_5():
     pass
 
 def ex_6():
-    n = int(input())
+    n = int(input("Podaj liczbe:"))
 
     def gen_slownik(n):
         slownik = {x: x**2 for x in range(1, n+1)}
@@ -109,7 +109,7 @@ def ex_6():
     pass
 
 def ex_7():
-    n = int(input())
+    n = int(input("Podaj liczbe:"))
 
     def gen_slownik(n):
         slownik = {x: x**2 for x in range(1, n+1)}
