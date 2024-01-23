@@ -5,6 +5,10 @@ import csv
 import os
 import datetime
 
+# Poprawność zadań: 8/11
+# Dodatki: 1.5/2
+# Znormalizowane: 0,7307692308
+
 def ex_1():
     for i in range(100):
         if i % 3 == 0: 
